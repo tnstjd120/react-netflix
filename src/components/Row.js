@@ -39,7 +39,7 @@ const Row = ({ title, fetchUrl }) => {
     setMovies(requests.data.results)
   }
 
-  const handleMovieClick = (movie) => {
+  const handleMovieClick = async (movie) => {
     setModalOpen(true)
     setSelectedMovie(movie)
   }
