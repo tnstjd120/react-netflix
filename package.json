@@ -2,6 +2,7 @@
   "name": "react-netflix-clone",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tnstjd120.github.io/react-netflix/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -23,7 +24,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
-    "prettier": "prettier ."
+    "prettier": "prettier .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -54,6 +57,7 @@
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-standard": "^5.0.0",
+    "gh-pages": "^5.0.0",
     "prettier": "^2.8.1"
   }
 }

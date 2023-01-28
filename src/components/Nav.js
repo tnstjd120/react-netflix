@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FiSearch } from 'react-icons/fi'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 import './Nav.css'
 
@@ -32,12 +32,12 @@ const Nav = () => {
 
   return (
     <nav className={`nav ${show && 'nav__black'}`}>
-      <a href="/" className="nav__logo">
+      <Link to="/" className="nav__logo">
         <img
           alt="Neflix logo"
           src="//upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/200px-Netflix_2015_logo.svg.png"
         />
-      </a>
+      </Link>
 
       <div className="nav__right">
         <div className={`nav__search ${searchOpen && 'active'}`}>
@@ -54,7 +54,10 @@ const Nav = () => {
         </div>
 
         <a href="#" className="nav__avatar">
-          <img alt="Neflix avatar" src={'images/netflix_avatar_icon.jpeg'} />
+          <img
+            alt="Neflix avatar"
+            src="https://tnstjd120.github.io/react-netflix/images/netflix_avatar_icon.jpeg"
+          />
         </a>
       </div>
     </nav>
