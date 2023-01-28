@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from '../api/axios'
 import requests from '../api/requests'
-import './Banner.css'
-import { FaPlay, FaInfoCircle } from 'react-icons/fa'
 import styled from 'styled-components'
+import { FaPlay, FaInfoCircle } from 'react-icons/fa'
+
+import './Banner.css'
 
 const Container = styled.div`
   position: fixed;
@@ -67,6 +69,7 @@ const Banner = (el) => {
   const [movieLogo, setMovieLogo] = useState('')
   const [isPlay, setIsPlay] = useState(false)
   const bgBaseUrl = 'https://image.tmdb.org/t/p/original/'
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchData()
@@ -144,7 +147,10 @@ const Banner = (el) => {
               <FaPlay />
               재생
             </button>
-            <button className="banner__button info">
+            <button
+              className="banner__button info"
+              onClick={() => navigate(`/${movie.id}`)}
+            >
               <FaInfoCircle />
               상세정보
             </button>

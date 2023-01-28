@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { FiSearch } from 'react-icons/fi'
+import { useNavigate, useLocation } from 'react-router-dom'
+
 import './Nav.css'
 
 const Nav = () => {
   const [show, setShow] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [searchValue, setSearchValue] = useState('')
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -14,6 +21,15 @@ const Nav = () => {
     }
   }, [])
 
+  const handleClick = () => {
+    setSearchOpen(searchOpen ? false : true)
+  }
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value)
+    e.target.value ? navigate(`/search?q=${e.target.value}`) : navigate('/')
+  }
+
   return (
     <nav className={`nav ${show && 'nav__black'}`}>
       <a href="/" className="nav__logo">
@@ -23,9 +39,24 @@ const Nav = () => {
         />
       </a>
 
-      <a href="#" className="nav__avatar">
-        <img alt="Neflix avatar" src={'images/netflix_avatar_icon.jpeg'} />
-      </a>
+      <div className="nav__right">
+        <div className={`nav__search ${searchOpen && 'active'}`}>
+          <button onClick={handleClick}>
+            <FiSearch />
+          </button>
+
+          <input
+            type="text"
+            placeholder="제목, 사람, 장르"
+            value={searchValue}
+            onChange={handleChange}
+          />
+        </div>
+
+        <a href="#" className="nav__avatar">
+          <img alt="Neflix avatar" src={'images/netflix_avatar_icon.jpeg'} />
+        </a>
+      </div>
     </nav>
   )
 }

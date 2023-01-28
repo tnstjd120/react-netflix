@@ -1,0 +1,39 @@
+.detail-container {
+    padding-top: 60px;
+    color: #fff;
+}
+
+.detail__body {
+    padding: 40px 20px 20px;
+    position: relative;
+    top: -400px;
+    z-index: 2;
+    background: #111;
+    background: linear-gradient(0deg, #111 0%, #111 80%, transparent 100%);
+    color: #fff;
+    padding: 150px 30px;
+}
+
+.detail__top {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.detail__top span {
+    color: green;
+    margin-right: 10px;
+}
+
+.detail__title {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.detail__average {
+    padding-left: 2px;
+}
+
+.detail__overview {
+    line-height: 1.5;
+}

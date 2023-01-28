@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
+import useOnClickOutside from '../../hooks/useOnClickOutside'
 import './MovieModal.css'
 
 const ModalBackground = styled.div`
@@ -25,8 +26,6 @@ const Modal = styled.div`
   transform: translate(-50%, -50%);
 `
 
-const list = [1, 2, 3, 4, 5]
-
 const MovieModal = ({
   backdrop_path,
   title,
@@ -38,10 +37,11 @@ const MovieModal = ({
   setModalOpen,
 }) => {
   const bgBaseUrl = 'https://image.tmdb.org/t/p/original/'
-
+  const ref = useRef()
+  useOnClickOutside(ref, () => setModalOpen(false))
   return (
     <ModalBackground>
-      <Modal>
+      <Modal ref={ref}>
         <div className="modal__header">
           <img src={bgBaseUrl + backdrop_path} />
 
